@@ -38,7 +38,7 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
 
-// database
+// // database
 // const db = require("./models");
 // const Role = db.role;
 // //force: true will drop the table if it already exists
@@ -51,19 +51,31 @@ app.listen(PORT, () => {
 function initial() {
     Role.create({
         id: 1,
-        name: "developer",
+        name: "admin",
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
     });
 
     Role.create({
         id: 2,
-        name: "tester",
+        name: "developer",
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
     });
 
     Role.create({
         id: 3,
-        name: "admin",
+        name: "tester",
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+    });
+
+    Role.create({
+        id: 4,
+        name: "dev_lead",
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+    });
+
+    Role.create({
+        id: 5,
+        name: "test_lead",
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
     });
 }
