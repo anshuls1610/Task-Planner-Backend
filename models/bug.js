@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             Bug.belongsTo(models.Task, { as: 'task', foreignKey: 'taskId' });
             Bug.belongsTo(models.Testcase, { as: 'testcase', foreignKey: 'caseId' });
+            Bug.belongsTo(models.User, { as: 'user', foreignKey: 'assignedToDevId' });
         }
     };
     Bug.init({

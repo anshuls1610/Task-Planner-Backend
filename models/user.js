@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             User.hasMany(models.Note, { foreignKey: 'userId' });
             User.hasMany(models.user_role, { foreignKey: 'userId' });
+            User.hasMany(models.Bug, { foreignKey: 'assignedToDevId' });
+            User.hasMany(models.Task, { as: "devTask", foreignKey: 'assignedToDevId' });
+            User.hasMany(models.Task, { as: "testTask", foreignKey: 'assignedToTestId' });
         }
     };
     User.init({

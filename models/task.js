@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
             Task.hasMany(models.Testcase, { foreignKey: 'taskId' });
             Task.hasMany(models.Bug, { foreignKey: 'taskId' });
             Task.belongsTo(models.Release, { as: 'release', foreignKey: 'releaseId' });
+            Task.belongsTo(models.User, { as: 'devTask', foreignKey: 'assignedToDevId' });
+            Task.belongsTo(models.User, { as: "testTask", foreignKey: 'assignedToTestId' });
         }
     };
     Task.init({
