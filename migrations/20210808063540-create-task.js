@@ -12,28 +12,33 @@ module.exports = {
                 type: Sequelize.STRING
             },
             priority: {
-                type: Sequelize.ENUM("Very Low", "Low", "Medium", "High", "Very High")
+                type: Sequelize.ENUM("Very Low", "Low", "Medium", "High", "Very High"),
+                defaultValue: "Low"
             },
             description: {
                 type: Sequelize.TEXT
             },
             type: {
-                type: Sequelize.ENUM("Feature", "Update", "Bug", "Task")
+                type: Sequelize.ENUM("Feature", "Update", "Bug", "Task"),
+                defaultValue: "Feature"
             },
             for: {
-                type: Sequelize.ENUM("Ui", "Backend", "Frontend")
+                type: Sequelize.ENUM("Ui", "Backend", "Frontend"),
+                defaultValue: "Ui"
             },
             assignedToDevId: {
-                type: Sequelize.INTEGER
-            },
-            assignedToDev: {
-                type: Sequelize.STRING
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Users',
+                    key: 'id'
+                }
             },
             assignedToTestId: {
-                type: Sequelize.INTEGER
-            },
-            assignedToTest: {
-                type: Sequelize.STRING
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Users',
+                    key: 'id'
+                }
             },
             expectedFinishDate: {
                 allowNull: false,
@@ -43,13 +48,19 @@ module.exports = {
                 type: Sequelize.DATE,
             },
             status: {
-                type: Sequelize.ENUM("Received", "Accepted", "In Progress", "In Testing", "Solving Bugs", "Completed", "No Longer Required", "Released", "On Hold"),
+                type: Sequelize.ENUM("Received", "Accepted", "In Progress", "In Testing",
+                    "Solving Bugs", "Completed", "No Longer Required", "Released", "On Hold"),
+                defaultValue: "Generated"
             },
             flag: {
                 type: Sequelize.ENUM("RED", "GREEN", "YELLOW", "BLUE"),
+                defaultValue: "BLUE"
             },
             releaseId: {
                 type: Sequelize.INTEGER,
+            },
+            comments: {
+                type: Sequelize.TEXT,
             },
             createdById: {
                 type: Sequelize.INTEGER,

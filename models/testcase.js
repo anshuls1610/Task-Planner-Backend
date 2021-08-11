@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         },
         status: {
-            type: DataTypes.ENUM('Valid', 'Invalid')
+            type: DataTypes.ENUM('Valid', 'Invalid'),
+            defaultValue: "Valid"
         },
         createdById: {
             type: DataTypes.INTEGER,

@@ -21,7 +21,8 @@ module.exports = {
                 type: Sequelize.TEXT
             },
             status: {
-                type: Sequelize.ENUM('Releasing', "Released")
+                type: Sequelize.ENUM('Releasing', "Released"),
+                defaultValue: "Releasing"
             },
             createdById: {
                 type: Sequelize.INTEGER,

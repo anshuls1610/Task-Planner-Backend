@@ -21,28 +21,33 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         priority: {
-            type: DataTypes.ENUM("Very Low", "Low", "Medium", "High", "Very High")
+            type: DataTypes.ENUM("Very Low", "Low", "Medium", "High", "Very High"),
+            defaultValue: "Low"
         },
         description: {
             type: DataTypes.TEXT
         },
         type: {
-            type: DataTypes.ENUM("Feature", "Update", "Bug", "Task")
+            type: DataTypes.ENUM("Feature", "Update", "Bug", "Task"),
+            defaultValue: "Feature"
         },
         for: {
-            type: DataTypes.ENUM("Ui", "Backend", "Frontend")
+            type: DataTypes.ENUM("Ui", "Backend", "Frontend"),
+            defaultValue: "Ui"
         },
         assignedToDevId: {
-            type: DataTypes.INTEGER
-        },
-        assignedToDev: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Users',
+                key: 'id'
+            }
         },
         assignedToTestId: {
-            type: DataTypes.INTEGER
-        },
-        assignedToTest: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Users',
+                key: 'id'
+            }
         },
         expectedFinishDate: {
             allowNull: false,
@@ -52,13 +57,19 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
         },
         status: {
-            type: DataTypes.ENUM("Received", "Accepted", "In Progress", "In Testing", "Solving Bugs", "Completed", "No Longer Required", "Released", "On Hold"),
+            type: DataTypes.ENUM("Generated", "Received", "Accepted", "In Progress", "In Testing",
+                "Solving Bugs", "Completed", "No Longer Required", "Released", "On Hold"),
+            defaultValue: "Generated"
         },
         flag: {
             type: DataTypes.ENUM("RED", "GREEN", "YELLOW", "BLUE"),
+            defaultValue: "BLUE"
         },
         releaseId: {
             type: DataTypes.INTEGER,
+        },
+        comments: {
+            type: DataTypes.TEXT,
         },
         createdById: {
             type: DataTypes.INTEGER,

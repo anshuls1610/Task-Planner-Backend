@@ -12,17 +12,27 @@ module.exports = {
                 type: Sequelize.STRING
             },
             caseId: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                allowNull: true,
             },
             taskId: {
-                allowNull: false,
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                allowNull: true,
+            },
+            assignedToDevId: {
+                type: Sequelize.INTEGER,
+                allowNull: true,
+                references: {
+                    model: 'Users',
+                    key: 'id'
+                }
             },
             description: {
                 type: Sequelize.TEXT
             },
             status: {
-                type: Sequelize.ENUM("New", "In Progress", "Solved", "Reassigned", "Wrong Bug")
+                type: Sequelize.ENUM("New", "In Progress", "Solved", "Reassigned", "Wrong Bug"),
+                defaultValue: "New"
             },
             createdById: {
                 type: Sequelize.INTEGER,

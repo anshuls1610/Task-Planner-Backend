@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT
         },
         status: {
-            type: DataTypes.ENUM('Releasing', "Released")
+            type: DataTypes.ENUM('Releasing', "Released"),
+            defaultValue: "Releasing"
         },
         createdById: {
             type: DataTypes.INTEGER,
