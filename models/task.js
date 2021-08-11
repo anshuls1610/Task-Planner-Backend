@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
         },
         status: {
-            type: DataTypes.ENUM("Received", "Accepted", "In Progress", "In Testing", "Solving Bugs", "Completed", "No Longer Required", "Released"),
+            type: DataTypes.ENUM("Received", "Accepted", "In Progress", "In Testing", "Solving Bugs", "Completed", "No Longer Required", "Released", "On Hold"),
         },
         flag: {
             type: DataTypes.ENUM("RED", "GREEN", "YELLOW", "BLUE"),

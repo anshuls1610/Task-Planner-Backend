@@ -43,7 +43,7 @@ module.exports = {
                 type: Sequelize.DATE,
             },
             status: {
-                type: Sequelize.ENUM("Received", "Accepted", "In Progress", "In Testing", "Solving Bugs", "Completed", "No Longer Required", "Released"),
+                type: Sequelize.ENUM("Received", "Accepted", "In Progress", "In Testing", "Solving Bugs", "Completed", "No Longer Required", "Released", "On Hold"),
             },
             flag: {
                 type: Sequelize.ENUM("RED", "GREEN", "YELLOW", "BLUE"),
