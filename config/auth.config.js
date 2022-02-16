@@ -1,3 +1,3 @@
 module.exports = {
-  secret: "frendy-wms-dashboard"
+  secret: "wms-dashboard"
 };
